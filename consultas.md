@@ -4,7 +4,7 @@ INSERT INTO
 film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
 VALUES 
 ('Beekeepers', 'la pelicula es d ela venganza d euna colmena', 2022, 1, 1, 5, 2.99, 120, 19.99, 'PG-13', 'Trailers');
-```sql
+```
 
 ![Punto1](https://github.com/AlexGiraldo2/BD2/assets/161048738/031513bf-f196-48ba-8fe6-f88fb5fd3c93)
 
