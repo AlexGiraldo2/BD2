@@ -1,19 +1,20 @@
 # Punto1 Inserte un registro en la tabla 'película' utilizando valores ficticios, asegurando la integridad referencial con otras tablas
-
+```sql
 INSERT INTO 
 film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
 VALUES 
 ('Beekeepers', 'la pelicula es d ela venganza d euna colmena', 2022, 1, 1, 5, 2.99, 120, 19.99, 'PG-13', 'Trailers');
-
+```sql
 
 ![Punto1](https://github.com/AlexGiraldo2/BD2/assets/161048738/031513bf-f196-48ba-8fe6-f88fb5fd3c93)
 
 # Punto 2  ¿Qué películas son más largas que la duración promedio de las películas?
-
+```sql
 SELECT *
 FROM sakila.film
 WHERE rental_duration > (SELECT AVG(rental_duration) FROM sakila.film)
 limit 10;
+```sql
 ![Punto2](https://github.com/AlexGiraldo2/BD2/assets/161048738/c333c8cb-3553-4782-97d8-9324051042a4)
 
 # Punto 3 ¿Qué películas se alquilan actualmente en la tienda con store_id = 1?
