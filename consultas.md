@@ -104,4 +104,3 @@ GROUP BY c.customer_id, c.first_name, c.last_name, c.email
 HAVING COUNT(r.rental_id) = 0;
 ```
 ![Punto9](https://github.com/AlexGiraldo2/BD2/assets/161048738/41813141-2358-4c57-a7bf-3971a5faae60)
-
