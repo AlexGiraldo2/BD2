@@ -14,6 +14,7 @@ SELECT *
 FROM sakila.film
 WHERE rental_duration > (SELECT AVG(rental_duration) FROM sakila.film)
 limit 10;
+![Punto2](https://github.com/AlexGiraldo2/BD2/assets/161048738/c333c8cb-3553-4782-97d8-9324051042a4)
 
 # Punto 3 ¿Qué películas se alquilan actualmente en la tienda con store_id = 1?
 
@@ -24,6 +25,7 @@ JOIN sakila.rental r ON i.inventory_id = r.inventory_id
 WHERE r.return_date IS NULL
 AND i.store_id = 1
 LIMIT 10;
+![Punto3](https://github.com/AlexGiraldo2/BD2/assets/161048738/cd3f3418-858f-427c-8716-d59a46c562a2)
 
 
 # Punto 4 De las películas en la tienda con store_id = 1, ¿cuáles se alquilaron por un período más largo que el período de alquiler promedio? '''  '''
@@ -37,12 +39,14 @@ JOIN film_actor ON a.actor_id = film_actor.actor_id
 GROUP BY a.actor_id 
 HAVING num_films <= 5
 ORDER BY num_films;
+![Punto5](https://github.com/AlexGiraldo2/BD2/assets/161048738/c9b3fffc-1b1f-45ba-b101-73e27b023db3)
 
 
 # Punto 6 ¿Qué apellidos no se repiten entre los diferentes actores?
 
 SELECT DISTINCT actor.last_name
 FROM sakila.actor;
+![Punto6](https://github.com/AlexGiraldo2/BD2/assets/161048738/2108b49e-9eaf-4e67-95da-cc1da9493331)
 
 
 # Punto 7 Cree una vista con los 3 géneros principales que generan mayores ingresos. Listarlos en orden descendente, considerando el campo 'monto' de la tabla de pagos para el cálculo.
@@ -61,6 +65,7 @@ GROUP BY sakila.c.name
 ORDER BY total_revenue DESC
 LIMIT 3;
 select * from top_genero;
+![Punto7](https://github.com/AlexGiraldo2/BD2/assets/161048738/902ea0fa-600b-4a8f-a847-44c7c454fc88)
 
 
 # Punto 8 Seleccione las dos películas más vistas en cada ciudad.
@@ -77,6 +82,7 @@ JOIN film ON inventory.film_id = film.film_id
 GROUP BY c.city_id, film.title
 ORDER BY c.city_id, COUNT(rental.rental_id) DESC
 LIMIT 2;
+![Punto8](https://github.com/AlexGiraldo2/BD2/assets/161048738/a1efc2d6-0af5-4e48-9883-7f5fc52cc2f8)
 
 # Punto 9 Seleccione el nombre, apellido y correo electrónico de todos los clientes de Estados Unidos que no hayan alquilado ninguna película en los últimos tres meses.
 
@@ -90,4 +96,5 @@ WHERE co.country = 'United States'
 AND (r.rental_date IS NULL OR r.rental_date < DATE_SUB(NOW(), INTERVAL 3 MONTH))
 GROUP BY c.customer_id, c.first_name, c.last_name, c.email
 HAVING COUNT(r.rental_id) = 0;
+![Punto9](https://github.com/AlexGiraldo2/BD2/assets/161048738/41813141-2358-4c57-a7bf-3971a5faae60)
 
